@@ -1,6 +1,6 @@
 {%set name = "louvain" %}
-{%set version = "0.5.3" %}
-{%set md5 = "ae305e69f19d5ab2ccd11510fec52cb4" %}
+{%set version = "0.6.1" %}
+{%set md5 = "818fb8f60a14dca135920797097ac4bf" %}
 
 package:
   name: {{ name }}
