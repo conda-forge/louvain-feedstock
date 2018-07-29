@@ -27,10 +27,6 @@ requirements:
     - setuptools
     - igraph
     - python-igraph
-    # If Windws build
-    #- posix                # [win]
-    #- {{native}}toolchain  # [win]
-    #- gcc                  # [not win]
   run:
     # We need to include setuptools have access to the pkg_resources,
     # see https://stackoverflow.com/questions/7446187/no-module-named-pkg-resources
