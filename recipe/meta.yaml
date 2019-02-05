@@ -1,6 +1,6 @@
-{%set name = "louvain" %}
-{%set version = "0.6.1" %}
-{%set md5 = "818fb8f60a14dca135920797097ac4bf" %}
+{% set name = "louvain" %}
+{% set version = "0.6.1" %}
+{% set md5 = "818fb8f60a14dca135920797097ac4bf" %}
 
 package:
   name: {{ name }}
@@ -12,7 +12,7 @@ source:
   md5: {{ md5 }}
 
 build:
-  number: 1
+  number: 2
   script: python setup.py install --single-version-externally-managed --record record.txt
   # the main dependency 'igraph' is not windows ready yet
   skip: True  # [win]
