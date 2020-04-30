@@ -3,7 +3,7 @@ About louvain
 
 Home: https://github.com/vtraag/louvain-igraph
 
-Package license: GPLv3
+Package license: GPL-3.0-or-later
 
 Feedstock license: BSD 3-Clause
 
@@ -78,16 +78,31 @@ Current build status
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/louvain-feedstock?branchName=master&jobName=osx&configuration=osx_python3.8.____cpython" alt="variant">
                 </a>
               </td>
+            </tr><tr>
+              <td>win_python3.6.____cpythontarget_platformwin-64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4781&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/louvain-feedstock?branchName=master&jobName=win&configuration=win_python3.6.____cpythontarget_platformwin-64" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_python3.7.____cpythontarget_platformwin-64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4781&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/louvain-feedstock?branchName=master&jobName=win&configuration=win_python3.7.____cpythontarget_platformwin-64" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_python3.8.____cpythontarget_platformwin-64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4781&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/louvain-feedstock?branchName=master&jobName=win&configuration=win_python3.8.____cpythontarget_platformwin-64" alt="variant">
+                </a>
+              </td>
             </tr>
           </tbody>
         </table>
       </details>
-    </td>
-  </tr>
-  <tr>
-    <td>Windows</td>
-    <td>
-      <img src="https://img.shields.io/badge/Windows-disabled-lightgrey.svg" alt="Windows disabled">
     </td>
   </tr>
   <tr>
@@ -191,4 +206,5 @@ Feedstock Maintainers
 =====================
 
 * [@vgauthier](https://github.com/vgauthier/)
+* [@vtraag](https://github.com/vtraag/)
 
