@@ -1,6 +1,6 @@
 {% set name = "louvain" %}
-{% set version = "0.6.1" %}
-{% set md5 = "818fb8f60a14dca135920797097ac4bf" %}
+{% set version = "0.6.2" %}
+{% set md5 = "6e2be44cfa88011b0a994ba650b7461b" %}
 
 package:
   name: {{ name }}
@@ -12,10 +12,10 @@ source:
   md5: {{ md5 }}
 
 build:
-  number: 2
+  number: 0
   script: python setup.py install --single-version-externally-managed --record record.txt
   # the main dependency 'igraph' is not windows ready yet
-  skip: True  # [win]
+  skip: true  # [win]
 
 requirements:
   build:
@@ -45,7 +45,7 @@ about:
   license: GPLv3
   license_family: GPL
   license_file: LICENSE
-  summary: "Implementation of the Louvain algorithm for various methods for use with igraph in python."
+  summary: Implementation of the Louvain algorithm for various methods for use with igraph in python.
   description: |
     This package implements the louvain algorithm in C++ and
     exposes it to python. It relies on (python-)igraph for it to
