@@ -1,38 +1,36 @@
 {% set name = "louvain" %}
-{% set version = "0.6.1" %}
-{% set md5 = "818fb8f60a14dca135920797097ac4bf" %}
+{% set version = "0.7.0" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  md5: {{ md5 }}
+  sha256: 9734fc6bf8c15546d685a8c6d7d7ca0574cad4cb641e9ca91c3334028658f7c6
 
 build:
-  number: 3
-  script: python setup.py install --single-version-externally-managed --record record.txt
-  # the main dependency 'igraph' is not windows ready yet
-  skip: True  # [win]
+  number: 0
+  skip: True  # [win or py27]
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv"
 
 requirements:
   build:
-    - pkg-config
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - flex
+    - bison
+    - libtool
+    - autoconf
+    - automake
   host:
     - python
-    - setuptools
-    - igraph
+    - pip
+    - setuptools_scm
     - python-igraph
   run:
-    # We need to include setuptools have access to the pkg_resources,
-    # see https://stackoverflow.com/questions/7446187/no-module-named-pkg-resources
-    - setuptools
     - python
-    - igraph
+    - setuptools
     - python-igraph
 
 test:
@@ -42,7 +40,7 @@ test:
 
 about:
   home: https://github.com/vtraag/louvain-igraph
-  license: GPLv3
+  license: GPL-3.0-or-later
   license_family: GPL
   license_file: LICENSE
   summary: "Implementation of the Louvain algorithm for various methods for use with igraph in python."
