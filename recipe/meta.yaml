@@ -1,18 +1,21 @@
 {% set name = "louvain" %}
 {% set version = "0.7.0" %}
+{% set sha256 = "9734fc6bf8c15546d685a8c6d7d7ca0574cad4cb641e9ca91c3334028658f7c6" %}
+{% set posix = 'm2-' if win else '' %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
+  fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 9734fc6bf8c15546d685a8c6d7d7ca0574cad4cb641e9ca91c3334028658f7c6
+  sha256: {{ sha256 }}
 
 build:
   number: 1
-  skip: True  # [win and vc<14]
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv"
+  skip: True  # [win and vc<14]
 
 requirements:
   build:
@@ -33,6 +36,7 @@ requirements:
   host:
     - python
     - pip
+    - setuptools
     - setuptools_scm
     - python-igraph
   run:
@@ -64,3 +68,4 @@ about:
 extra:
   recipe-maintainers:
     - vgauthier
+    - vtraag
