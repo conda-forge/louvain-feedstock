@@ -18,11 +18,18 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - flex
-    - bison
-    - libtool
-    - autoconf
-    - automake
+    - {{ compiler('fortran') }}
+    - pkg-config  # [not win]
+    - make  # [not win]
+    - {{ posix }}autoconf
+    - automake  # [not win]
+    - {{ posix }}bison
+    - {{ posix }}flex
+    - {{ posix }}libtool
+    - vs2017_{{ target_platform }}  # [win]
+    - posix  # [win]
+    - m2w64-toolchain  # [win]
+    - m2-automake-wrapper  # [win]
   host:
     - python
     - pip
