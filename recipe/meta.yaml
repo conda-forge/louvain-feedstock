@@ -1,6 +1,6 @@
 {% set name = "louvain" %}
-{% set version = "0.7.0" %}
-{% set sha256 = "9734fc6bf8c15546d685a8c6d7d7ca0574cad4cb641e9ca91c3334028658f7c6" %}
+{% set version = "0.7.1" %}
+{% set sha256 = "3dbb2b36fb4378370b92d6fd51484576f830bf38478ba58bd5e5725015a38990" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -13,9 +13,9 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation  # [not win]
-  skip: True  # [win and vc<14]
+  skip: true  # [win and vc<14]
 
 requirements:
   build:
@@ -54,7 +54,7 @@ about:
   license: GPL-3.0-or-later
   license_family: GPL
   license_file: LICENSE
-  summary: "Implementation of the Louvain algorithm for various methods for use with igraph in python."
+  summary: Implementation of the Louvain algorithm for various methods for use with igraph in python.
   description: |
     This package implements the louvain algorithm in C++ and
     exposes it to python. It relies on (python-)igraph for it to
