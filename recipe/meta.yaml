@@ -1,7 +1,6 @@
 {% set name = "louvain" %}
-{% set version = "0.7.0" %}
-{% set sha256 = "9734fc6bf8c15546d685a8c6d7d7ca0574cad4cb641e9ca91c3334028658f7c6" %}
-{% set posix = 'm2-' if win else '' %}
+{% set version = "0.7.1" %}
+{% set sha256 = "3dbb2b36fb4378370b92d6fd51484576f830bf38478ba58bd5e5725015a38990" %}
 
 package:
   name: {{ name }}
@@ -13,48 +12,47 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
-  script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation  # [not win]
-  skip: True  # [win and vc<14]
+  number: 0
+  skip: true  # [win and vc<14]
+
+  run_exports:
+    - {{ pin_subpackage("louvain", max_pin="x.x") }}
 
 requirements:
   build:
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - {{ compiler('fortran') }}  # [not win]
-    - pkg-config  # [not win]
-    - make  # [not win]
-    - {{ posix }}autoconf
-    - automake  # [not win]
-    - {{ posix }}bison
-    - {{ posix }}flex
-    - {{ posix }}libtool
     - vs2017_{{ target_platform }}  # [win]
-    - posix  # [win]
-    - m2w64-toolchain  # [win]
-    - m2-automake-wrapper  # [win]
   host:
+    - igraph
     - python
-    - pip
     - setuptools
     - setuptools_scm
-    - python-igraph
+    - pip
   run:
-    - python
-    - setuptools
+    - igraph
     - python-igraph
+    - python
+    - pip
 
 test:
+  requires:
+    - ddt
+  source_files:
+    - tests
   imports:
-    - igraph
     - louvain
+  commands:
+    - python -m unittest
 
 about:
   home: https://github.com/vtraag/louvain-igraph
   license: GPL-3.0-or-later
   license_family: GPL
   license_file: LICENSE
-  summary: "Implementation of the Louvain algorithm for various methods for use with igraph in python."
+  summary: Implementation of the Louvain algorithm for various methods for use with igraph in python.
   description: |
     This package implements the louvain algorithm in C++ and
     exposes it to python. It relies on (python-)igraph for it to
