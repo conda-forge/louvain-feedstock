@@ -1,6 +1,6 @@
 {% set name = "louvain" %}
-{% set version = "0.8.0" %}
-{% set sha256 = "117411464eaa07496fe7a7f874db41a03ce0fbd9528c6fefbe7b302e49fc829a" %}
+{% set version = "0.8.1" %}
+{% set sha256 = "b4df2cb8e46d5df7d1579cbcf9430b76d32dc88f58b854e566e11f9c10ac28f5" %}
 
 package:
   name: {{ name }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win and vc<14]
 
   run_exports:
