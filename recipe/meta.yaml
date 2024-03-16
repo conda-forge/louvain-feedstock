@@ -1,19 +1,15 @@
-{% set name = "louvain" %}
 {% set version = "0.8.1" %}
-{% set sha256 = "b4df2cb8e46d5df7d1579cbcf9430b76d32dc88f58b854e566e11f9c10ac28f5" %}
 
 package:
-  name: {{ name }}
+  name: louvain
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://pypi.io/packages/source/l/louvain/louvain-{{ version }}.tar.gz
+  sha256: b4df2cb8e46d5df7d1579cbcf9430b76d32dc88f58b854e566e11f9c10ac28f5
 
 build:
-  number: 1
-  skip: true  # [win and vc<14]
+  number: 2
 
   run_exports:
     - {{ pin_subpackage("louvain", max_pin="x.x") }}
@@ -24,7 +20,6 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - vs2017_{{ target_platform }}  # [win]
   host:
     - igraph
     - python
