@@ -1,4 +1,4 @@
-{% set version = "0.8.1" %}
+{% set version = "0.8.2" %}
 
 package:
   name: louvain
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/l/louvain/louvain-{{ version }}.tar.gz
-  sha256: b4df2cb8e46d5df7d1579cbcf9430b76d32dc88f58b854e566e11f9c10ac28f5
+  sha256: ce040bb0c5e349aead5a1e5e99738dcd9f2d10c22526d0633281b6ae230ee8d4
 
 build:
-  number: 2
+  number: 0
 
   run_exports:
     - {{ pin_subpackage("louvain", max_pin="x.x") }}
