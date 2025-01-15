@@ -9,7 +9,7 @@ source:
   sha256: ce040bb0c5e349aead5a1e5e99738dcd9f2d10c22526d0633281b6ae230ee8d4
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage("louvain", max_pin="x.x") }}
 
