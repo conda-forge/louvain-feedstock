@@ -5,12 +5,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/l/louvain/louvain-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/l/louvain/louvain-{{ version }}.tar.gz
   sha256: ce040bb0c5e349aead5a1e5e99738dcd9f2d10c22526d0633281b6ae230ee8d4
 
 build:
   number: 0
-
   run_exports:
     - {{ pin_subpackage("louvain", max_pin="x.x") }}
 
@@ -19,6 +18,7 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib('c') }}
     - {{ compiler('cxx') }}
   host:
     - igraph
@@ -30,7 +30,6 @@ requirements:
     - igraph
     - python-igraph
     - python
-    - pip
 
 test:
   requires:
@@ -45,7 +44,6 @@ test:
 about:
   home: https://github.com/vtraag/louvain-igraph
   license: GPL-3.0-or-later
-  license_family: GPL
   license_file: LICENSE
   summary: Implementation of the Louvain algorithm for various methods for use with igraph in python.
   description: |
@@ -60,5 +58,6 @@ about:
 
 extra:
   recipe-maintainers:
+    - danielnachun
     - vgauthier
     - vtraag
