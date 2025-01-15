@@ -18,7 +18,7 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
-    - {{ stdlib('c') }}
+    # - {{ stdlib('c') }}
     - {{ compiler('cxx') }}
   host:
     - igraph
@@ -30,6 +30,7 @@ requirements:
     - igraph
     - python-igraph
     - python
+    - setuptools
 
 test:
   requires:
