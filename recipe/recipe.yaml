@@ -19,18 +19,22 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
     - ${{ compiler('cxx') }}
+    - pkg-config
+    - if: unix
+      then: sed
+      else: m2-sed
     - if: build_platform != target_platform
       then:
         - python
         - cross-python_${{ target_platform }}
   host:
-    - igraph
+    - igraph <1.0
     - python
     - setuptools
     - setuptools_scm
     - pip
   run:
-    - igraph
+    - igraph <1.0
     - python-igraph
     - python
     - setuptools
