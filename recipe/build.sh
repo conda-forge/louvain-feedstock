@@ -8,4 +8,6 @@ export IGRAPH_EXTRA_LIBRARY_PATH=${PREFIX}/lib
 echo "Extra include path: ${IGRAPH_EXTRA_INCLUDE_PATH}"
 echo "Extra library path: ${IGRAPH_EXTRA_LIBRARY_PATH}"
 
-$PYTHON -m pip install . -vv --global-option="--external"
+sed -i "s/self.use_pkgconfig = False/self.use_pkgconfig = True/" setup.py
+sed -i "s/self.external = False/self.external = True/" setup.py
+$PYTHON -m pip install . --no-deps --ignore-installed -vv
